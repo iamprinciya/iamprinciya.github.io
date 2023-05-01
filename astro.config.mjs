@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config.js';
+import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
@@ -11,7 +11,7 @@ import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
-import { getBasePathName } from './src/utils/permalinks.js';
+import { getBasePathName } from './src/utils/permalinks';
 import { SITE } from './src/config.mjs';
 
 const BASE_PATHNAME = getBasePathName();
@@ -23,7 +23,7 @@ const whenExternalScripts = (items = []) =>
 
 export default defineConfig({
   site: SITE.origin,
-  // base: BASE_PATHNAME,
+  base: BASE_PATHNAME,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
   output: 'static',

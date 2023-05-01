@@ -4,7 +4,7 @@ const CONFIG = {
   name: 'Princiya Sequeira',
 
   origin: 'https://iamprinciya.github.io',
-  basePathname: '/',
+  basePathname: '',
   trailingSlash: false,
 
   title: 'Princiya Sequeira - personal website and blog',
