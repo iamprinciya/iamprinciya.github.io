@@ -1,12 +1,12 @@
 import slugify from 'limax';
 
 import { SITE, BLOG } from '../config.mjs';
-import { trim } from './utils';
+import { trim } from './utils.js';
 
 export const getBasePathName = (): string => {
-  const envMode = import.meta.env.MODE; // development or production
+  // const envMode = import.meta.env.MODE; // development or production
   
-  return envMode === 'production' ? SITE.basePathname : '/';
+  return SITE.basePathname;
 }
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));

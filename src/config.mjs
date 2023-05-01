@@ -3,8 +3,8 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'Princiya Sequeira',
 
-  origin: 'https://princiya.com',
-  basePathname: '/blog-astro',
+  origin: 'https://iamprinciya.github.io',
+  basePathname: '/',
   trailingSlash: false,
 
   title: 'Princiya Sequeira - personal website and blog',
