@@ -4,12 +4,14 @@ const CONFIG = {
   name: 'Princiya Sequeira',
 
   origin: 'https://iamprinciya.github.io',
-  basePathname: '',
+  basePathname: '/',
   trailingSlash: false,
 
   title: 'Princiya Sequeira - personal website and blog',
   description:
     'Engineering leader, Javascript aficionado, Speaker, and Mentor',
+  blogDescription: 'I write blog posts on technical subjects, mentorship, engineering leadership, and management.',
+  
   defaultImage: defaultImage,
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
