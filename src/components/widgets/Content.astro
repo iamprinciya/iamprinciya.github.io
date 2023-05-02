@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon';
 import { Picture } from '@astrojs/image/components';
+import { YouTube } from '@astro-community/astro-embed-youtube';
 
 interface Item {
   title: string;
@@ -17,6 +18,7 @@ export interface Props {
   image?: string | any; // TODO: find HTMLElementProps
   isReversed?: boolean;
   isAfterContent?: boolean;
+  youtube?: string;
 }
 
 const {
@@ -28,6 +30,7 @@ const {
   image = await Astro.slots.render('image'),
   isReversed = false,
   isAfterContent = false,
+  youtube = null
 } = Astro.props;
 ---
 
@@ -100,6 +103,9 @@ const {
               )}
             </div>
           )
+        }
+        {
+          youtube && <YouTube id={youtube} />
         }
       </div>
     </div>
