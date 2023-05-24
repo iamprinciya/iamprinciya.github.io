@@ -1,0 +1,179 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  
+  <Features2
+    title="Speaking"
+    subtitle="Conference talks, workshops, podcasts, interviews from around the world!"
+    highlight="All past events"
+    items={[
+      {
+        title: 'Frontend to Serverless',
+        description:
+          'You have built your awesome web app & want to share it with the world! Where do you start? How to get code from your machine to the cloud? Princiya will teach you to develop a web app locally & set it up for cloud deployment.',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/websc-2022.jpeg', alt: 'Web summer camp 2022, frontend to serverless' },
+        year: 2022,
+        type: 'Web Summer Camp, Croatia',
+        links: [{
+          Link: 'https://github.com/princiya/websc-2022'
+        }]
+      },
+      {
+        title: 'Keynote: Reset and Recharge',
+        description:
+          'Presented a Keynote at Women Who Code Connect Recharge 2022 on the topic - Reset and Recharge: Humans need it too just like devices!',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/keynote-wwcode-2022.png', alt: 'WWCode keynote on reset and recharge' },
+        year: 2022,
+        type: 'Women Who Code, Online',
+        links: [{
+          Slides: 'https://docs.google.com/presentation/d/1KiK9KJGHodYgOnMZZs371uKo8FYsw1abgFkH11Tz1a8/edit?usp=sharing',
+          Video: 'https://www.youtube.com/watch?v=ep3MAzyVFP4'
+        }]
+      },
+      {
+        title: 'Let us do a Salary negotiation review',
+        description:
+          'Get advice on what to negotiate, how to avoid common mistakes, and useful resources for tech salaries. You can also ask us your own set of questions on this topic!',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/salary-review-2022.png', alt: 'Let us do a Salary negotiation review' },
+        year: 2022,
+        type: 'Women Who Code, Online'
+      },
+      {
+        title: 'Let us do a Resume review',
+        description:
+          'Get advice on the resume structure, how to polish it, and avoid common mistakes. You can also ask us your own set of questions on this topic!',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/resume-review-2022.png', alt: 'Let us do a Resume review' },
+        year: 2022,
+        type: 'Women Who Code, Online'
+      },
+      {
+        title: 'The OSS chat show',
+        description:
+          '2021 Hacktoberfest special: Weekly virtual sessions showcasing voices from the opensource commnunity.',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/oss-chat-show-2021.jpeg', alt: 'The opensource chat show 2021' },
+        year: 2021,
+        type: 'Women Who Code, Online'
+      },
+      {
+        title: 'Time management best practices',
+        description:
+          'Do you struggle with time management? How do you stop procrastinating? In this episode of Open Source Cafe, Kunal Kushwaha talked with Princiya and they shared their insights about these points.',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/time-mgmt-2021.jpeg', alt: 'Time management best practices' },
+        year: 2021,
+        type: 'The Open Source Cafe, Online'
+      },
+      {
+        title: 'Debugging the Debugger',
+        description:
+          'If you want your website to get more than its fair share of visitors, the Hero section needs to be stellar.',
+        icon: 'flat-color-icons:advertising',
+      },
+      {
+        title: 'How to connect React to Redux',
+        description:
+          'A diagrammatic guide to better understand how Redux connects to React.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Web Tracking',
+        description:
+          'What you should know about your privacy online.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: '7 tips to ace your Outreachy application',
+        description:
+          'Lessons and tips on how you can improve your Outreachy internship application.',
+        icon: 'flat-color-icons:document',
+      }
+    ]}
+  />
+
+  <!-- <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Duis turpis dui, fringilla mattis sem nec, fringilla euismod neque. Morbi tincidunt lacus nec tortor scelerisque pulvinar."
+    highlight="FAQs"
+    items={[
+      [
+        {
+          question: 'What do I need to start?',
+          answer:
+            'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+        },
+        {
+          question: 'How to install the Astro + Tailwind CSS template?',
+          answer:
+            "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.",
+        },
+        {
+          question: "What's something that you don't understand?",
+          answer:
+            "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+        },
+      ],
+      [
+        {
+          question: "What's an example of when you changed your mind?",
+          answer:
+            "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+        },
+        {
+          question: 'What is something that you would like to try again?',
+          answer:
+            "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+        },
+        {
+          question: 'If you could only ask one question to each person you meet, what would that question be?',
+          answer:
+            "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        },
+      ],
+    ]}
+  /> -->
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    items={[
+      { name: 'Downloads', value: '132K' },
+      { name: 'Stars', value: '24.8K' },
+      { name: 'Forks', value: '10.3K' },
+      { name: 'Users', value: '48.4K' },
+    ]}
+  />
+
+  <CallToAction
+    callToAction={{
+      text: 'Blog',
+      href: '/blog',
+      icon: 'tabler:pencil',
+    }}
+  >
+    <Fragment slot="title">
+      Princiya Sequeira
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      I write blog posts on technical subjects, mentorship, engineering leadership, and management.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -59,3 +59,30 @@
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
+
+.ribbon {
+  --f: 15px; /* control the folded part */
+  --c0: var(--aw-color-primary);
+  --c1: rgb(203 213 225);
+  --sl: 100%, #0000 25%, var(--c0) 0%;
+  --ps: 0/ 51% 100% padding-box no-repeat;
+  --end: 0; /* end flag; 0 for left, 1 for right */
+  --sgn: calc(2*var(--end) - 1); /* flag sign */
+  position: absolute;
+  top: -40px;
+  left:  -10px; /* calc(var(--end)*100%); */
+  border-bottom: var(--f) solid transparent;
+  padding: .1em 1.8em;
+  width: max-content;
+  transform-origin: calc((1 - var(--end))*100%) 100%;
+  /* translate: calc(var(--sgn)*(1 - cos(45deg))*100% + var(--end)*-100%) -100%; */
+  rotate: calc(var(--sgn)*15deg);
+  color: #000;
+  z-index: 1;
+  background: 
+    conic-gradient(from -45deg at 0 var(--sl)) 0 var(--ps), 
+    conic-gradient(from -45deg at 100% var(--sl)) 100% var(--ps), 
+    conic-gradient(from -45deg at var(--f), var(--c1) 25%, #0000 0%) 
+      left calc(-1*var(--f)) bottom calc(-1*var(--f))/ 100% calc(2*var(--f)) 
+      repeat-x border-box
+}

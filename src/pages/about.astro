@@ -1,10 +1,13 @@
 ---
+import { Picture } from '@astrojs/image/components';
+
 import Layout from '~/layouts/PageLayout.astro';
 
-import Header from '~/components/widgets/Header.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Note from '~/components/widgets/Note.astro';
+import BannerTitle from '~/components/widgets/BannerTitle.astro';
+import BannerSubtitle from '~/components/widgets/BannerSubtitle.astro';
+import aboutImage from '~/assets/images/about.png';
 
 const meta = {
   title: "Princiya Sequeira: Engineering Leader and an expert in strategy",
@@ -15,106 +18,96 @@ const meta = {
 <Layout {meta}>
   <!-- Hero2 Widget ******************* -->
 
-  <Hero2
-    image={{ src: import('~/assets/images/hero.png'), alt: 'Princiya Sequeira cover photo' }}
-  >
-    <Fragment slot="title">
-      Hi, I am
-      <span class="text-accent dark:text-white highlight"> Princiya</span>
-    </Fragment>
+  <section class="relative">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+      <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:gap-8">
+        <div class="text-center lg:text-left pb-10 md:pb-16 mx-auto">
+          <div class="max-w-3xl mx-auto lg:max-w-none overflow-scroll">
+            <div class="relative m-auto max-w-5xl">
+              <Picture
+                src={aboutImage}
+                class="max-w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+                widths={[400, 900]}
+                sizes="(max-width: 900px) 400px, 900px"
+                alt="Princiya Sequeira - Engineering Leader, Speaker and Mentor"
+                loading="eager"
+                aspectRatio={16 / 9}
+                width={900}
+                height={506}
+                loading="eager"
+                decoding="async"
+                background={undefined}
+              />
+            </div>
 
-    <Fragment slot="subtitle">
-      <span class="sm:inline">
-        I <span class="font-semibold">love</span> food and Javascript. And now I am getting Pythonised.
-      </span>
-    </Fragment>
+            <div
+              class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
+            >
+              <BannerTitle>
+                <Fragment slot="title">
+                  Hi, I am
+                  <span class="text-accent dark:text-white highlight"> Princiya!</span>
+                </Fragment>
+              </BannerTitle> 
 
-    <Fragment slot="content">
-      <span class="text-lg">
-        I am a skilled programmer with strong communication skills and a dozen years of experience building full-stack web & mobile apps, implementing CI/CD solutions, and supporting infrastructures, including ~5 years of experience leading technical teams at scale.
-      </span>
-      <br/>
-      <br/>
-      My top strengths are <span class="font-semibold">Strategic, Relator, Achiever, Learner, and Responsibility.</span>
-    </Fragment>
+              <BannerSubtitle>
+                <Fragment slot="subtitle">
+                  <span class="hidden sm:inline">
+                    I love food and Javascript. And now I am getting Pythonised.
+                  </span>
+                </Fragment>
+              </BannerSubtitle> 
 
-    <Fragment slot="content">
-      <br/>
-      <span class="font-semibold inline-block mt-4">Work</span><br/>
-      <span class="text-base inline-block mt-4">
-        I work as an Engineering Manager at Anaconda on its enterprise product - Anaconda Server.
-        During 2021-22, I also spent my time with the women who code community as a Leadership Fellow on the wwcode frontend technical track.
-      </span>
-    </Fragment>
+              <hr/>
 
-    <Fragment slot="content">
-      <br/>
-      <br/>
-      <span class="text-base">
-        In my previous job, I worked for Curalie GmbH, Berlin as Head of Frontend Engineering. I have been in the web development field for 12+ years.
-        During this tenure, I have had the exposure to deal with full-stack web and mobile app development including dev-ops work, UX tasks, and mentoring team members.
-        I also have exposure to working with IoT, VR/AR, Data visualizations, and Machine Learning.
-      </span>
-    </Fragment>
+              <p class="mt-10">As an experienced leader, I possess excellent communication skills and have managed technical teams, promoting collaboration and productivity. With proficiency in programming, I bring over 12 years of experience in full-stack web and mobile development, CI/CD implementation, and infrastructure support.</p>
+              <p>In the course of my professional journey, I have developed a strong skill set that has been instrumental in my success. My primary strengths encompass Strategy, Relationship-building, Achievement, Learning, and Responsibility.</p>
+              <p>I write blog posts on technical subjects, mentorship, engineering leadership, and management.</p>
 
-    <Fragment slot="content">
-      <br/>
-      <span class="font-semibold inline-block mt-4">Opensource</span><br/>
-      <span class="text-base">
-        I contribute to open-source and maintain(ed) Lightbeam which is a browser extension to visualize first and third-party trackers. I have also served as a community maintainer for the Firefox dev tools debugger project.
-        <br/><br/>
-        I have been a Software Developer coach at Raise.dev and MLH Fellowship where I coached undergraduates in contributing to opensource, offered them career advice, and prepared them into getting internships or full-time jobs in Software Engineering.
-        Through this program, I mentored open-source contributors to popular open-source repositories like React Native core, AWS Amplify, and Slate.js.
-      </span>
-    </Fragment>
+              <h3>Work</h3> 
+              <p>
+                I work as an Engineering Manager at Anaconda on its enterprise product - Anaconda Server.
+                During 2021-22, I also spent my time with the women who code community as a Leadership Fellow on the wwcode frontend technical track.
+              </p> 
+              <p>
+                In my previous role, I was the Head of Frontend Engineering at Curalie GmbH in Berlin. With over 12 years of experience in the web development field, I have gained extensive knowledge in full-stack web and mobile app development, including dev-ops tasks, UX responsibilities, and mentoring team members. Additionally, I have experience working with IoT, VR/AR, data visualizations, and machine learning.  
+              </p>
 
-    <Fragment slot="content">
-      <br/>
-      <span class="font-semibold inline-block mt-4">Community</span><br/>
-      <span class="text-base">
-        I have been speaking at international conferences since 2015 on web frontend-related topics.
-        I blog about my journey into an engineering leadership role and solving technical problems.
-        <br/>
-        Before the covid pandemic, I volunteered my time in co-organizing the Berlin critical tech meetup, curating diversity scholarship applications for JSConfEU and React India conferences, and co-hosting the bi-weekly D&I community & contributor calls.
-        <br/>
-        I have also participated in the mentorship program for the Node.js Diagnostics working group and Open Source Maintainer Leadership program from Mozilla.
-      </span>
-    </Fragment>
+              <h3>Work</h3> 
+              <p>I have contributed to and maintained Lightbeam, a browser extension that visualizes first and third-party trackers. Additionally, I served as a community maintainer for the Firefox Developer Tools Debugger project.</p>
+              <p>As a Software Developer coach at Raise.dev and MLH Fellowship, I guided undergraduates in contributing to open-source projects, provided career advice, and prepared them for internships or full-time jobs in Software Engineering. Through this program, I mentored open-source contributors to popular repositories such as React Native Core, AWS Amplify, and Slate.js.</p>
+              
+              <h3>Community Work</h3>
+              <p>I have been presenting at international conferences since 2015 on web frontend-related topics. I write about my journey into an engineering leadership role and addressing technical challenges. Prior to the COVID-19 pandemic, I volunteered my time in co-organizing the Berlin Critical Tech Meetup, reviewing diversity scholarship applications for JSConfEU and React India conferences, and co-hosting the bi-weekly Diversity & Inclusion community and contributor calls. Additionally, I have participated in the mentorship program for the Node.js Diagnostics Working Group and the Open Source Maintainer Leadership program from Mozilla.</p>
 
-    <Fragment slot="content">
-      <br/>
-      <span class="font-semibold inline-block mt-4">Skills</span><br/>
-      <span class="text-base">
-        - React, React Native, CSS, JavaScript, Node.js, Webpack, Docker, AWS, CI/CD, DevOps, Test automation, Data visualizations, Python
-        <br/>
-        - Empathetic leadership and strong communication
-        <br/>
-        - Strategic, Relator, Achiever, Learner, and Responsibility
-        <br/>
-        - Translate tech jargon into meaningful cartoons and mental models
-        <br/>
-      </span>
-    </Fragment>
-  </Hero2>
-
+              <h3>Summary</h3>
+              <p>I possess expertise in various technologies such as React, Node.js, and Python, along with empathetic leadership, strong communication, and strategic thinking skills, while also being able to translate technical jargon into meaningful cartoons and mental models.</p>
+            </div> 
+          </div>  
+        </div>
+       
+      </div>
+    </div>
+  </section>
+  
   <Note />
 
-  <!-- CallToAction Widget *********** -->
-
-  <!-- <CallToAction
+  <CallToAction
     callToAction={{
-      text: 'Get template',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:download',
+      text: 'Blog',
+      href: '/blog',
+      icon: 'tabler:pencil',
     }}
   >
     <Fragment slot="title">
-      Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Tailwind CSS</span>
+      Princiya Sequeira
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      I write blog posts on technical subjects, mentorship, engineering leadership, and management.
     </Fragment>
-  </CallToAction> -->
+  </CallToAction>
+
 </Layout>

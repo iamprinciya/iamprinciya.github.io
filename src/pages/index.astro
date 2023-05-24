@@ -30,6 +30,7 @@ const meta = {
   > -->
   <Hero
     callToAction2={{ text: 'Read more...', href: '/about' }}
+    showSocialLinks
   >
     <Fragment slot="title">
       Hi, I am
@@ -40,9 +41,6 @@ const meta = {
       <span class="hidden sm:inline">
         I love food and Javascript. And now I am getting Pythonised.
       </span>
-      <!-- <span>
-        I am a skilled programmer with strong communication skills and a dozen years of experience building full-stack web & mobile apps, implementing CI/CD solutions and supporting infrastructures, including 5+ years of experience leading technical teams at scale.
-      </span> -->
     </Fragment>
   </Hero>
 
@@ -191,59 +189,11 @@ const meta = {
     }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Speaking and Writing"
-    subtitle="Featured guest blog posts and speaking engagements from around the world"
-    highlight="Top picks"
-    items={[
-      {
-        title: 'Frontend to Serverless',
-        description:
-          'Display your product in action and how the Features actually create a solution for your target customer.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Keynote: Reset and Recharge',
-        description:
-          'Presented a Keynote at Women Who Code Connect Recharge 2022 on the topic - Reset and Recharge: Humans need it too just like devices!',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Debugging the Debugger',
-        description:
-          'If you want your website to get more than its fair share of visitors, the Hero section needs to be stellar.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'How to connect React to Redux',
-        description:
-          'A diagrammatic guide to better understand how Redux connects to React.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Web Tracking',
-        description:
-          'What you should know about your privacy online.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: '7 tips to ace your Outreachy application',
-        description:
-          'Lessons and tips on how you can improve your Outreachy internship application.',
-        icon: 'flat-color-icons:document',
-      }
-    ]}
-  />
-
   <!-- HighlightedPosts Widget ******* -->
 
   <LatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-			Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-			Astro is a very interesting technology. Thanks.
+    title="Find out more content in my Blog"
+    information={`I write blog posts on technical subjects, mentorship, engineering leadership, and management.
 		`}
     postIds={[
       'get-started-website-with-astro-tailwind-css.md',
@@ -296,33 +246,4 @@ const meta = {
       ],
     ]}
   /> -->
-
-  <!-- Stats Widget ****************** -->
-
-  <!-- <Stats
-    items={[
-      { name: 'Downloads', value: '132K' },
-      { name: 'Stars', value: '24.8K' },
-      { name: 'Forks', value: '10.3K' },
-      { name: 'Users', value: '48.4K' },
-    ]}
-  /> -->
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    callToAction={{
-      text: 'Blog',
-      href: '/blog',
-      icon: 'tabler:pencil',
-    }}
-  >
-    <Fragment slot="title">
-      Princiya Sequeira
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      I write blog posts on technical subjects, mentorship, engineering leadership, and management.
-    </Fragment>
-  </CallToAction>
 </Layout>

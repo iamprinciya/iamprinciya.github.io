@@ -1,0 +1,260 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  
+  <Features2
+    title="Articles"
+    subtitle="Guest blog posts and articles"
+    highlight="External Publications"
+    items={[
+      {
+        title: 'A case for Reset & Recharge',
+        description:
+          'Guest blog post published in Anaconda Perspectives which was adapted from my WWCode Keynote presentation from 2022 on the topic of Reset & Recharge.',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/anaconda-blog.png', alt: 'A case for R & R' },
+        year: 2022,
+        links: [{
+            Link: 'https://www.anaconda.com/blog/a-case-for-r-and-r/',
+            Slides: 'https://docs.google.com/presentation/d/1KiK9KJGHodYgOnMZZs371uKo8FYsw1abgFkH11Tz1a8/edit?usp=sharing',
+            Video: 'https://www.youtube.com/watch?v=ep3MAzyVFP4'
+        }],
+        type: 'Anaconda'
+      },
+      {
+        title: 'The Wisdom Of Women Leaders As They Forge The Post Pandemic Future',
+        description:
+          'Women have been stepping up in #leadership roles, despite the fact that they have been disproportionately impacted by the pandemic. This Forbes article shares wisdom from Engineering Manager, Princiya, about how women leaders can forge their paths.',
+        image: { src: '~/assets/images/forbes.jpeg', alt: 'The Wisdom Of Women Leaders As They Forge The Post Pandemic Future' },
+        year: 2022,
+        links: [{
+            Link: 'https://www.forbes.com/sites/alainapercival/2021/12/01/the-wisdom-of-women-leaders-as-they-forge-the-post-pandemic-future/',
+        }],
+        type: 'Forbes'
+      },
+      {
+        title: 'Never stop learning',
+        description:
+          "Truly enjoyed this session with Madhuri Jakkaraju where we spoke about Madhuri's technical journey, her transition into the technical leadership role, and how she uses her privilege in giving back to the community through mentorship programs.",
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/wwcode-madhuri.png', alt: 'Never stop learning' },
+        year: 2022,
+        links: [{
+            Link: 'https://www.womenwhocode.com/blog/above-the-glass-madhuri-jakkaraju-never-stop-learning'
+        }],
+        type: 'Women Who Code'
+      },
+      {
+        title: 'WWCode Podcast #33 — Elisabeth Kurek, VP of Cloud Marketing at IONOS',
+        description:
+          'Princiya Sequeira, leadership fellow for Women Who Code Front End Track, interviews Elisabeth Kurek, VP of Cloud Marketing at IONOS. They discuss Elisabeth’s journey to VP in a technical role, the importance of inclusion and diversity, and her approach to leadership.',
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/wwcode-podcast.png', alt: 'WWCode Podcast #33 — Elisabeth Kurek, VP of Cloud Marketing at IONOS' },
+        year: 2022,
+        links: [{
+            Link: 'https://womenwhocode.medium.com/wwcode-podcast-33-elisabeth-kurek-vp-of-cloud-marketing-at-ionos-c31dfbfd655e'
+        }],
+        type: 'Women Who Code'
+      },
+      {
+        title: "How taking risks catapulted one software engineer's career forward",
+        description:
+          "On this week's episode of the freeCodeCamp podcast, Abbey chats with developer and wearer of many hats Princiya about how she changed careers, moved to Berlin, and worked her way up to a lead role.",
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/fcc-podcast.jpeg', alt: "How taking risks catapulted one software engineer's career forward" },
+        year: 2019,
+        links: [{
+            Link: 'https://www.freecodecamp.org/news/podcast-how-taking-risks-catapulted-one-software-engineers-career-forward/'
+        }],
+        type: 'Free Code Camp'
+      },
+      {
+        title: "How to connect React to Redux - a diagrammatic guide",
+        description:
+          "This post is aimed at people who already know React and Redux. This will aid them in better understanding how things work under the hood. When I first got into the React universe 🌐, I had a very hard time understanding how Redux’s mapStateToProps and mapDispatchToProps worked and were available to the React component. Here is a diagrammatic guide to better understand how Redux’s connect works with React.",
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/react-redux.webp', alt: "How to connect React to Redux - a diagrammatic guide" },
+        year: 2019,
+        links: [{
+            Link: 'https://medium.com/free-code-camp/how-to-connect-react-to-redux-a-diagrammatic-guide-d2687c14750a'
+        }],
+        type: 'Free Code Camp'
+      },
+      {
+        title: "The art of asking questions",
+        description:
+          "It has happened many times to me in the past. My brain has had a question, but I have always stopped it from slipping out, thinking I would make a fool out of myself. Only later would I realise that somebody else asked a similar question and got applauded for asking such a wonderful question! Do you relate to this situation?",
+        icon: 'flat-color-icons:advertising',
+        image: { src: '~/assets/images/questions.webp', alt: "The art of asking questions" },
+        year: 2019,
+        links: [{
+            Link: 'https://www.freecodecamp.org/news/the-art-of-asking-questions-84c01c9987a4'
+        }],
+        type: 'Free Code Camp'
+      },
+      {
+        title: "Web tracking - what you should know about your privacy online",
+        description:
+          "What you should know about web tracking and how it affects your online privacy by Princiya on FreeCodeCamp.org. This explains how web tracking works in a nutshell.",
+        image: { src: '~/assets/images/web-tracking.jpeg', alt: "Web tracking - what you should know about your privacy online" },
+        year: 2018,
+        links: [{
+            Link: 'https://www.freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525'
+        }],
+        type: 'Free Code Camp'
+      },
+      {
+        title: "Node.js Diagnostics",
+        description:
+          "Published in Node.js Collection. This is my experience participating in the Node.js mentorship program and working with the Node.js Diagnostics Working Group.",
+        image: { src: '~/assets/images/nodejs.webp', alt: "Node.js Diagnostics" },
+        year: 2018,
+        links: [{
+            Link: 'https://medium.com/the-node-js-collection/node-js-diagnostics-a7af5a790510'
+        }],
+        type: 'Free Code Camp'
+      },
+      {
+        title: "Shining a light on web tracking and lightbeam",
+        description:
+          "An open project spotlight about Lightbeam published in Mozilla's Open Leaders program.",
+        image: { src: '~/assets/images/lightbeam.png', alt: "Shining a light on web tracking and lightbeam" },
+        year: 2017,
+        links: [{
+            Link: 'https://medium.com/read-write-participate/shining-a-light-on-web-tracking-2194cdbdae5c'
+        }],
+        type: 'Mozilla Open Leaders'
+      }
+    ]}
+  />
+
+  <Features2
+    title="From the Archives"
+    subtitle="Old is gold"
+    highlight=""
+    items={[
+      {
+        title: "WebRTC - a detailed guide",
+        description:
+          "WebRTC - a detailed guide",
+        year: 2017,
+        links: [{
+            Link: 'https://princiya777.wordpress.com/category/webrtc/'
+        }],
+        type: 'Web summer camp'
+      },
+      {
+        title: "Zines",
+        description:
+          "My zine drawings",
+        year: 2016,
+        links: [{
+            Link: 'https://princiya777.wordpress.com/category/zine/'
+        }],
+        type: 'Zine'
+      },
+      {
+        title: "Opensource",
+        description:
+          "Getting started with opensource, my Outreachy and Lightbeam journey",
+        year: 2016,
+        links: [{
+            Link: 'https://princiya777.wordpress.com/category/outreachy/'
+        }],
+        type: 'Opensource'
+      },
+      {
+        title: "Hack like a girl with Zalando Tech",
+        description:
+          "Get involved in hacking with Geek Girls Carrots Berlin and the Zalando Tech Shop API.",
+        year: 2016,
+        links: [{
+            Link: 'https://engineering.zalando.com/posts/2016/12/hack-like-a-girl-with-zalando-tech.html'
+        }],
+        type: 'Zalando'
+      }
+    ]}
+  />
+
+  <!-- <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Duis turpis dui, fringilla mattis sem nec, fringilla euismod neque. Morbi tincidunt lacus nec tortor scelerisque pulvinar."
+    highlight="FAQs"
+    items={[
+      [
+        {
+          question: 'What do I need to start?',
+          answer:
+            'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+        },
+        {
+          question: 'How to install the Astro + Tailwind CSS template?',
+          answer:
+            "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.",
+        },
+        {
+          question: "What's something that you don't understand?",
+          answer:
+            "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+        },
+      ],
+      [
+        {
+          question: "What's an example of when you changed your mind?",
+          answer:
+            "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+        },
+        {
+          question: 'What is something that you would like to try again?',
+          answer:
+            "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+        },
+        {
+          question: 'If you could only ask one question to each person you meet, what would that question be?',
+          answer:
+            "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        },
+      ],
+    ]}
+  /> -->
+
+  <!-- Stats Widget ****************** -->
+
+  <!-- <Stats
+    items={[
+      { name: 'Downloads', value: '132K' },
+      { name: 'Stars', value: '24.8K' },
+      { name: 'Forks', value: '10.3K' },
+      { name: 'Users', value: '48.4K' },
+    ]}
+  /> -->
+
+  <CallToAction
+    callToAction={{
+      text: 'Blog',
+      href: '/blog',
+      icon: 'tabler:pencil',
+    }}
+  >
+    <Fragment slot="title">
+      Princiya Sequeira
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      I write blog posts on technical subjects, mentorship, engineering leadership, and management.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -1,6 +1,10 @@
 ---
 import { Icon } from 'astro-icon';
 import { Picture } from '@astrojs/image/components';
+import SocialLinks from './SocialLinks.astro';
+import { footerData } from '~/data';
+import BannerTitle from './BannerTitle.astro';
+import BannerSubtitle from './BannerSubtitle.astro';
 
 interface CallToAction {
   text: string;
@@ -14,6 +18,7 @@ export interface Props {
   callToAction?: string | CallToAction;
   callToAction2?: string | CallToAction;
   image?: string | any; // TODO: find HTMLElementProps
+  showSocialLinks?: boolean;
 }
 
 const {
@@ -23,6 +28,7 @@ const {
   callToAction = await Astro.slots.render('callToAction'),
   callToAction2 = await Astro.slots.render('callToAction2'),
   image = await Astro.slots.render('image'),
+  showSocialLinks = true,
 } = Astro.props;
 ---
 
@@ -34,14 +40,11 @@ const {
       <div class="text-center pt-10 pb-10 md:pt-16 md:pb-16 max-w-screen-lg mx-auto">
         {
           title && (
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-              set:html={title}
-            />
+            <BannerTitle title={title} />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <BannerSubtitle subtitle={subtitle} />}
           <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
@@ -80,6 +83,13 @@ const {
               )
             }
           </div>
+          {
+            showSocialLinks && (
+              <div class="inline-block mt-4">
+                <SocialLinks socialLinks={footerData.socialLinks} />
+              </div>
+            )
+          }
         </div>
         {content && <Fragment set:html={content} />}
       </div>

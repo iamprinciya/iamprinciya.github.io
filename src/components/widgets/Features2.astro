@@ -1,10 +1,23 @@
 ---
 import { Icon } from 'astro-icon';
+import { Picture } from '@astrojs/image/components';
+import { findImage } from '~/utils/images';
+
+interface Link {
+  Slides?: string;
+  Video?: string;
+  Link?: string;
+}
 
 interface Item {
   title?: string;
   description?: string;
   icon?: string;
+  image?: string | any;
+  year?: Number,
+  place?: string,
+  links?: Array<Link>,
+  type?: string
 }
 
 export interface Props {
@@ -53,15 +66,73 @@ const {
       }
       <div class={`grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-12 dark:text-white items-stretch`}>
         {
-          items.map(({ title, description, icon }) => (
-            <div class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-slate-800">
-              <div class="flex items-center">
-                <Icon name={icon} class="w-10 h-10" />
-                <div class="ml-4 text-xl font-bold">{title}</div>
+          items.map(async ({ title, description, image, year, place, links = [], type }) => {
+            let img = null;
+            
+            if (image){
+              img = await findImage(image.src);
+            }
+            
+
+            return (
+              <div class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-lg hover:shadow-md transition border border-transparent dark:border-slate-800">
+                {
+                  // type &&
+                  // <div class="absolute -left-4 -top-4 -rotate-[10deg] z-[1]">
+                  //   <span
+                  //   class="relative px-4 py-1 rounded bg-primary dark:bg-secondary inline-block text-white dark:text-slate-300"
+                  //   >
+                  //     {type}
+                  //   </span>
+                  // </div>
+                  type &&
+                    <div class="ribbon grayscale">
+                      <span
+                      class="relative px-4 py-1 inline-block text-white dark:text-slate-300 text-xs"
+                      >
+                        {type}
+                      </span>
+                    </div>
+                }
+                {
+                  place && <div class="mb-4 font-semibold">{place}</div>
+                }
+                {
+                  img && 
+                  <Picture
+                    class="inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700 transition ease-in-out delay-150 hover:scale-110 duration-300"
+                    // widths={[400, 900]}
+                    sizes="(max-width: 900px) 400px, 900px"
+                    // alt={title || ''}
+                    aspectRatio="16:9"
+                    loading="lazy"
+                    decoding="async"
+                    {...img}
+                  />
+                }
+                <div class="flex items-center mt-6">
+                  <div class="mr-4 text-xl font-bold">{title}</div>
+                  {
+                    year &&
+                    <span
+                      class="px-4 py-1 rounded bg-gray-100 dark:bg-slate-700 inline-block text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
+                    >
+                      {year}
+                    </span>
+                  }
+                </div>
+                {description && <p class="text-muted dark:text-gray-400 text-md mt-4" set:html={description} />}
+                <div class="mt-4">
+                  {
+                    links.map(link => 
+                      Object.keys(link).map((key) => 
+                        <a rel="noopener noreferrer" target="_blank" href={link[key]} class="inline-block mr-4 underline underline-offset-4 decoration-primary hover:decoration-wavy dark:decoration-slate-700">{key}</a>
+                      ))
+                  }
+                </div>
               </div>
-              {description && <p class="text-muted dark:text-gray-400 text-md mt-4" set:html={description} />}
-            </div>
-          ))
+            )
+          })
         }
       </div>
     </div>
