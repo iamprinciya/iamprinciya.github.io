@@ -20,7 +20,7 @@
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/tailwind": "^5.0.2",
     "@astrolib/analytics": "^0.4.2",
-    "@astrolib/seo": "^0.3.0",
+    "@astrolib/seo": "^0.6.0",
     "@fontsource/inter": "^4.5.15",
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.2.21",
