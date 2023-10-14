@@ -9,6 +9,7 @@ import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
+import react from '@astrojs/react'
 
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { getBasePathName } from './src/utils/permalinks';
@@ -43,7 +44,7 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp',
     }),
     mdx(),
-
+    
     ...whenExternalScripts(() =>
       partytown({
         config: { forward: ['dataLayer.push'] },
@@ -61,6 +62,8 @@ export default defineConfig({
 
       logger: 1,
     }),
+
+    react()
   ],
 
   vite: {

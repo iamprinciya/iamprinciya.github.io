@@ -45,6 +45,13 @@
     "node": ">=16.12.0"
   },
   "dependencies": {
-    "@astro-community/astro-embed-youtube": "^0.2.2"
+    "@astro-community/astro-embed-integration": "^0.5.1",
+    "@astro-community/astro-embed-twitter": "^0.5.1",
+    "@astro-community/astro-embed-youtube": "^0.4.1",
+    "@astrojs/react": "^3.0.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
